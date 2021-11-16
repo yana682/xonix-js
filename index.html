@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>xonux by ulyana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="theHead">XONIX</div>
+    <canvas id="logo" width="800" height="25"></canvas>
+<!---->
+<!--начало игры-->
+    <div id="newGame" href="#game" onclick="runGame()">New Game</div>
+<!--показать историю-->
+    <div id="historyBtn" href="#history" onclick="showHistory()">History</div>
+    <div id="history">
+      <p>Была создана в 1984 году для платформы PC как клон игры Qix, появившейся ранее на аркадных автоматах. Была популярна в 1980-е и 1990-е годы.</p>
+      <p>Придумана Иланом Рабом и Дэни Катцем.</p>
+      <p>Существует много версий для разных платформ.</p>
+      <img src="first.jpg">
+      <p>Таким образом вывглядела первая игра на ОС Windows.</p>
+      <iframe width="500" height="300" src="gameplay.mp4" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+
+<!--показать рекорды-->
+<div id="recordsBtn" href="#records" onclick="showRecords()">Records</div>
+    <div id="records">
+      <table>
+        <tr><td>name</td> <td>score</td> </tr>
+        <tr><td>1.</td><td></td><td></td></tr>
+        <tr><td>2.</td><td></td><td></td></tr>
+        <tr><td>3.</td><td></td><td></td></tr>
+        <tr><td>4.</td><td></td><td></td></tr>
+        <tr><td>5.</td><td></td><td></td></tr>
+        <tr><td>6.</td><td></td><td></td></tr>
+        <tr><td>7.</td><td></td><td></td></tr>
+        <tr><td>8.</td><td></td><td></td></tr>
+        <tr><td>9.</td><td></td><td></td></tr>
+        <tr><td>10.</td><td></td><td></td></tr>
+      </table>
+    </div>
+
+<!--показать геймплей-->
+<div id="optionsBtn" href="#options" onclick="showOptions()">Options</div>
+    <div id="options">
+      <p>Игровое поле представляет собой сетку из квадратных или прямоугольных ячеек, поэтому игра легко реализуется в текстовом режиме экрана.</p>
+      <p>Ячейки могут быть двух типов: условно «суша» и «море».</p>
+      <p>По полю движутся управляемый игроком Xonix и управляемые программой монстры.</p>
+      <p>Xonix может двигаться по вертикали и горизонтали, монстры — по диагонали.</p>
+      <p>Монстры бывают «сухопутными» и «морскими», то есть движутся или только по «суше», или только по «морю», отскакивая от разделяющей их границы.</p>
+      <p>Xonix может свободно передвигаться по «суше», где он уязвим для «сухопутных» монстров. Выходя в «море», он оставляет за собой след, уязвимый для «морских» монстров, при этом в «море» нельзя изменить направление движения на противоположное, можно поворачивать только на 90 градусов в любую сторону, также в «море» нельзя останавливаться.</p>
+      <p>Игра считается проигранной, если Xonix собьёт «сухопутная» или «морская» точка, если след Xonix пересечет «морская» точка или при попытке в «море» изменить направление движения на противоположное или остановиться. Как только Xonix снова оказывается на «суше», след его превращается в новую «сушу». Если при этом в «море» появилась замкнутая область, не содержащая точек, то вся эта область также превращается в «сушу».</p>
+      <table>
+        <tr>символика, использованая при создании игры</tr>
+        <tr><td><canvas id="sea"></canvas></td><td>&#8594;</td><td>море</td></tr>
+        <tr><td><canvas id="ground"></canvas></td><td>&#8594;</td><td>суша</td></tr>
+        <tr><td><canvas id="ground-def"></canvas></td><td>&#8594;</td><td>суша по умолчанию</td></tr>
+        <tr><td><canvas id="xon"></canvas></td><td>&#8594;</td><td>Xonix</td></tr>
+        <tr><td><canvas id="xon-tale"></canvas></td><td>&#8594;</td><td>след оставляемый Xonix</td></tr>
+        <tr><td><canvas id="sea-mon"></canvas></td><td>&#8594;</td><td>морской монстр</td></tr>
+        <tr><td><canvas id="gr-mon"></canvas></td><td>&#8594;</td><td>сухопутный монстр</td></tr>
+        <tr><td><canvas id="boom-mon"></canvas></td><td>&#8594;</td><td>разрушающий монстр</td></tr>
+        </table>
+    </div>
+
+    <div id="backBtn" onclick="goBack()">Back</div>
+    <div id="wrapper">
+      <canvas id="status-canvas-1" width="800" height="25"></canvas>
+      <canvas id="main-canvas" width="800" height="480"></canvas>
+      <canvas id="status-canvas-2" width="800" height="25"></canvas>
+  </div>
+     
+    <script src="xonix.js"></script>
+ <script src="text.js"></script>
+    
+    <script>
+      var runGame = function(){
+        document.getElementById("newGame").style.display = "none";
+        document.getElementById("theHead").style.display = "block";
+        document.getElementById("wrapper").style.display = "block";
+        document.getElementById("backBtn").style.display = "block";
+        //убираем всё с историей
+        document.getElementById("history").style.display = "none";       
+        document.getElementById("historyBtn").style.display = "none";
+        //убираем всё с рекордами
+        document.getElementById("records").style.display = "none";       
+        document.getElementById("recordsBtn").style.display = "none";
+
+        //убираем всё с опции
+        document.getElementById("options").style.display = "none";       
+        document.getElementById("optionsBtn").style.display = "none";
+        
+        setup();
+      };
+      //история
+     var showHistory = function(){
+       document.getElementById("theHead").style.display = "block";
+       
+       document.getElementById("history").style.display = "block";//показать
+       document.getElementById("backBtn").style.display = "block";
+      //скрыть лишнее
+       document.getElementById("historyBtn").style.display = "none";
+       document.getElementById("newGame").style.display = "none";//скрыть
+       //скрыть рекорды
+      document.getElementById("records").style.display = "none";       
+      document.getElementById("recordsBtn").style.display = "none";
+
+        //скрыть опции
+      document.getElementById("options").style.display = "none";       
+      document.getElementById("optionsBtn").style.display = "none";
+     };
+//рекорды
+var showRecords = function(){
+       document.getElementById("theHead").style.display = "none";
+       
+       document.getElementById("records").style.display = "block";//показать
+       document.getElementById("backBtn").style.display = "block";
+      //скрыть лишнее
+       document.getElementById("recordsBtn").style.display = "none";
+       document.getElementById("newGame").style.display = "none";//скрыть
+       //скрыть историю
+      document.getElementById("history").style.display = "none";       
+        document.getElementById("historyBtn").style.display = "none";
+        //скрыть опции
+        document.getElementById("options").style.display = "none";       
+        document.getElementById("optionsBtn").style.display = "none";
+     };
+//опции
+var showOptions = function(){
+       document.getElementById("theHead").style.display = "block";
+       
+       document.getElementById("options").style.display = "block";//показать
+       document.getElementById("backBtn").style.display = "block";
+      //скрыть лишнее
+       document.getElementById("optionsBtn").style.display = "none";
+       document.getElementById("newGame").style.display = "none";//скрыть
+       //скрыть рекорды
+      document.getElementById("records").style.display = "none";       
+        document.getElementById("recordsBtn").style.display = "none";
+        //скрыть историю
+        document.getElementById("history").style.display = "none";       
+        document.getElementById("historyBtn").style.display = "none";
+     };
+      
+    var goBack = function(){
+      //убираем текст
+      document.getElementById("backBtn").style.display = "none";
+      document.getElementById("history").style.display = "none";
+      //рекорды
+      document.getElementById("records").style.display = "none";
+//опции
+      document.getElementById("options").style.display = "none";
+      document.getElementById("wrapper").style.display = "none";
+
+      //показываем кнопоки
+      document.getElementById("theHead").style.display = "block";
+      document.getElementById("newGame").style.display = "block";
+      document.getElementById("historyBtn").style.display = "block";
+      //рекорды
+      document.getElementById("recordsBtn").style.display = "block";
+      //опции
+      document.getElementById("optionsBtn").style.display = "block";
+    };
+    
+    </script>
+    
+</body>
+</html>
