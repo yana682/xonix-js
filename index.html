@@ -6,8 +6,6 @@
 </head>
 <body>
     <div id="theHead">XONIX</div>
-    <!--<canvas id="logo" width="800" height="25"></canvas>-->
-<!---->
 <!--начало игры-->
     <div id="newGame" href="#game" onclick="runGame()">New Game</div>
 <!--показать историю-->
@@ -16,9 +14,9 @@
       <p>Была создана в 1984 году для платформы PC как клон игры Qix, появившейся ранее на аркадных автоматах. Была популярна в 1980-е и 1990-е годы.</p>
       <p>Придумана Иланом Рабом и Дэни Катцем.</p>
       <p>Существует много версий для разных платформ.</p>
-      <img src="https://alchetron.com/cdn/xonix-03ddb106-9021-42e4-8200-9ed6a02e12f-resize-750.jpeg">
+      <img src="first.jpg">
       <p>Таким образом вывглядела первая игра на ОС Windows.</p>
-      <iframe width="500" height="300" src="https://www.youtube.com/watch?v=zJCbKPNEnF8" frameborder="0" allowfullscreen>
+      <iframe width="500" height="300" src="gameplay.mp4" frameborder="0" allowfullscreen>
       </iframe>
     </div>
 
@@ -72,29 +70,8 @@
      
     <script src="xonix.js"></script>
  <script src="text.js"></script>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyB4ieuq_RMRMtT3T2Jz_4xoofNSMpY4r-s",
-    authDomain: "xonix-acba3.firebaseapp.com",
-    projectId: "xonix-acba3",
-    storageBucket: "xonix-acba3.appspot.com",
-    messagingSenderId: "608965544329",
-    appId: "1:608965544329:web:1bc1a470675f78e110f958",
-    measurementId: "G-CJ5VP9JXL5"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+ <script src="firebase.js"></script>
+    
     <script>
       var runGame = function(){
         document.getElementById("newGame").style.display = "none";
