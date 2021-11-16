@@ -9,3 +9,5 @@ xonix game with using JavaScript
   - Html
   - CSS
   - FireBase
+
+Изображения взяты из открытых источников, видео с хостинга YouTube
