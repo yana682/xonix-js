@@ -1,0 +1,148 @@
+body {
+  background: #170027;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+#main{
+  display: none;
+}
+#newGame, #historyBtn, #recordsBtn, #optionsBtn{
+  text-align: center ;
+  vertical-align: middle;
+  border: 2px solid rgba(200, 238, 200, 0.24);
+  border-radius: 7px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.596);
+  font-size: 30px;
+  font-family: "Roboto";
+  width: 7em;
+  margin: 10px auto;
+}
+#theHead{
+  margin: auto;
+  margin-top: 100px;
+  color: rgb(255, 255, 255);
+  font-size: 2em;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+#logo{
+  margin-top: 10px;
+}
+#history, #records, #options{
+  margin: auto;
+  color: rgba(255, 255, 255, 0.719);
+  font-size: 20px;
+  font-family: "Roboto";
+  display: none;
+  background-color: inherit;
+}
+#backBtn{
+  display: none;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid rgba(200, 238, 200, 0.24);
+  border-radius: 7px;
+  background-color: transparent;
+  color: #ffffff98;
+  font-size: 30px;
+  font-family: "Roboto";
+  width: 7em;
+  margin: 10px auto;
+}
+#sea{
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  background-color: #170027;
+}
+#ground{
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  background-color: #FFFFFF;
+}
+#ground-def{
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(177, 40, 16);
+}
+#xon{
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: rgb(44, 21, 248);
+}
+#xon-tale{
+  margin-left: 10px;
+  height: 20px;
+  width: 40px;
+  background-color: #808080;
+}
+#sea-mon{
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: #2000d6ad;
+}
+#gr-mon{
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: #ffa600;
+}
+#boom-mon{
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: #00FF00;
+}
+table {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 14px;
+background: transparent;
+max-width: 70%;
+width: 70%;
+border-collapse: collapse;
+text-align: left;
+}
+th {
+font-weight: normal;
+color: #039;
+border-bottom: 2px solid #6678b1;
+padding: 10px 8px;
+}
+td {
+color: rgba(255, 255, 255, 0.596);
+padding: 9px 8px;
+transition: .3s linear;
+}
+tr:hover td {
+color: rgb(255, 255, 255);
+}
+
+#wrapper {
+  width: 800px;
+  height: 540px;
+  position:relative;
+  margin: auto;
+}
+
+  #status-canvas-1 {
+  position: auto;
+  top: 0;
+  }
+
+  #main-canvas {
+  position: auto;
+  top: 30px;
+  }
+
+  #status-canvas-2 {
+  position: auto;
+  bottom: 0;
+  }
