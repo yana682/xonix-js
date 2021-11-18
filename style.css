@@ -1,3 +1,4 @@
+/*стидизация тела сайта*/
 body {
   background: #170027;
   color: #fff;
@@ -5,10 +6,8 @@ body {
   font-size: 2em;
   text-align: center;
 }
-#main{
-  display: none;
-}
-#newGame, #historyBtn, #recordsBtn, #optionsBtn{
+/*стилизация основных кнопок меню*/
+#newGame, #historyBtn, #recordsBtn, #optionsBtn {
   text-align: center ;
   vertical-align: middle;
   border: 2px solid rgba(200, 238, 200, 0.24);
@@ -20,19 +19,18 @@ body {
   width: 7em;
   margin: 10px auto;
 }
-#theHead{
+/*основная надпись */
+#theHead {
   margin: auto;
-  margin-top: 100px;
-  color: rgb(255, 255, 255);
-  font-size: 2em;
+  margin-top: 200px;
+  color: rgba(255, 255, 255, 0.596);
+  font-size: 3em;
   font-family: "Lato", sans-serif;
   font-weight: bold;
   text-align: center;
 }
-#logo{
-  margin-top: 10px;
-}
-#history, #records, #options{
+/*оформление дополнительных страничек*/
+#history, #records, #options {
   margin: auto;
   color: rgba(255, 255, 255, 0.719);
   font-size: 20px;
@@ -40,7 +38,8 @@ body {
   display: none;
   background-color: inherit;
 }
-#backBtn{
+/*стилизую отдельно кнопку назад*/
+#backBtn {
   display: none;
   text-align: center;
   vertical-align: middle;
@@ -53,96 +52,127 @@ body {
   width: 7em;
   margin: 10px auto;
 }
-#sea{
+/*символика использованная при создании игры
+она находится в таблице на страничке options*/
+/*квадратик обозначающий цвет моря*/
+#sea {
   margin-left: 10px;
   height: 30px;
   width: 30px;
-  background-color: #170027;
+  background-color: #71369b;
+  border: #FFFFFF;
+  border-width: 5px;
 }
+/*квадратик обозначающий цвет суши*/
 #ground{
   margin-left: 10px;
   height: 30px;
   width: 30px;
   background-color: #FFFFFF;
 }
-#ground-def{
-  margin-left: 10px;
-  height: 30px;
-  width: 30px;
-  background-color: rgb(177, 40, 16);
-}
+/*квадратик обозначающий Xonix(персонажа, которым управляет пользователь)*/
 #xon{
   margin-left: 10px;
   height: 20px;
   width: 20px;
-  background-color: rgb(44, 21, 248);
+  background-color: #2c15f8;
 }
+/*квадратик обозначающий след, оставляемый Xonix при движении*/
 #xon-tale{
   margin-left: 10px;
   height: 20px;
   width: 40px;
   background-color: #808080;
 }
+/*квадратик обозначающий морского монстра*/
 #sea-mon{
   margin-left: 10px;
   height: 20px;
   width: 20px;
-  background-color: #2000d6ad;
+  background-color: #FF7400;
 }
+/*квадратик обозначающий сухопутного монстра*/
 #gr-mon{
   margin-left: 10px;
   height: 20px;
   width: 20px;
-  background-color: #ffa600;
+  background-color: #b12810;
 }
+/*квадратик обозначающий монстра-удалителя*/
 #boom-mon{
   margin-left: 10px;
   height: 20px;
   width: 20px;
-  background-color: #00FF00;
+  background-color: #FF0086;
 }
+/*изображение кнопок, управления Xonix*/
+#upBtn, #leftBtn, #dovnBtn, #rightBtn{
+  color: #FFFFFF;
+  margin-left: 40px;
+  height: 60px;
+  width: 60px;
+  border-radius: 5px;
+  border: 2px solid rgba(200, 238, 200, 0.24);
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Roboto";
+}
+/*пробел*/
+#space{
+  margin-left: 10px;
+  height: 60px;
+  width: 120px;
+  border-radius: 5px;
+  border-radius: 5px;
+  border: 2px solid rgba(200, 238, 200, 0.24);
+  background-color: transparent;
+  color: #FFFFFF;
+  font-size: 30px;
+}
+/*стилизация таблицы и её элементов*/
 table {
-font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-font-size: 14px;
-background: transparent;
-max-width: 70%;
-width: 70%;
-border-collapse: collapse;
-text-align: left;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 14px;
+  background: transparent;
+  max-width: 70%;
+  width: 70%;
+  border-collapse: collapse;
+  text-align: left;
 }
 th {
-font-weight: normal;
-color: #039;
-border-bottom: 2px solid #6678b1;
-padding: 10px 8px;
+  font-weight: normal;
+  color: #039;
+  border-bottom: 2px solid #6678b1;
+  padding: 10px 8px;
 }
 td {
-color: rgba(255, 255, 255, 0.596);
-padding: 9px 8px;
-transition: .3s linear;
+  color: rgba(255, 255, 255, 0.596);
+  padding: 9px 8px;
+  transition: .3s linear;
 }
 tr:hover td {
-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
-
+/*игровые canvas-элементы*/
 #wrapper {
   width: 800px;
   height: 540px;
   position:relative;
   margin: auto;
 }
-
-  #status-canvas-1 {
+/*канвас с жизнями, счётом и процентом заполнения поля*/
+#apperCanvas1 {
   position: auto;
   top: 0;
-  }
-
-  #main-canvas {
+}
+/*главный канвас, в нём отрисована сама игра*/
+#mainCanvas {
   position: auto;
   top: 30px;
-  }
-
-  #status-canvas-2 {
+}
+/*канвас с отображением уровня и временем*/
+#apperCanvas2 {
   position: auto;
   bottom: 0;
-  }
+}
